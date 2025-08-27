@@ -3,3 +3,158 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    height: 100vh; /*100% de la ventana del navegador*/
+    align-items: center;
+    justify-content: center;
+    display: flex; /*Flexbox*/
+    background-color: burlywood;
+}
+
+.container-task {  /*Contenedor padre*/
+    width: 500px;
+    min-height: 300px; /*Para hacerlo responsive*/
+    padding: 20px;
+    background-color: bisque;
+    border-radius: 10px;
+}
+
+.add-tasks {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre textarea y button */
+}
+
+.add-tasks textarea{
+    width: 100%;
+    height: 30px;
+    border: solid thin #d1d1d1;
+    padding: 2px; 
+    border-radius: 5px;
+    flex: 3;
+}
+
+.add-tasks textarea:focus{
+    border: solid thin #1eaebd;
+    outline: none; /*Quitar el borde predeterminado que aparece al hacer click*/
+}
+
+.add-tasks button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    letter-spacing: 1px; /*Espacio entre letras*/
+    background-color: #33c3f0;
+    cursor: pointer; /*Mano cuando se pasa por encima*/
+    font-size: 12px;
+    color:antiquewhite;
+    border-radius: 5px;
+    flex: 1; /*El boton ocupe el espacio que queda*/
+   
+}
+
+.add-tasks button:hover{
+    background-color: #1EAEDB;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding : 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before { /*Para agregar el circulo de seleccion*/
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(../assets/images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked { /*Marcar las tares cuando se seleccionen como hechas (accion)*/
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    background-image: url(../assets/images/checked.png);
+
+}
+
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%; /*Hacer el span redondo*/
+}
+
+ul li span:hover {
+    background-color: rgb(221, 174, 111);
+}
+
+/* (320px – 480px)*/
+@media (max-width: 480px) {
+    .container-task {
+        width: 95%;
+        padding: 10px;
+    }
+    h1 { font-size: 20px; }
+    h2 { font-size: 16px; }
+    p  { font-size: 14px; }
+
+    /* Formulario en columna */
+    .add-tasks {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .add-tasks textarea, 
+    .add-tasks button {
+        width: 100%;
+    }
+}
+
+/*(481px – 768px)*/
+@media (max-width: 768px) {
+    .container-task {
+        width: 90%;
+        padding: 15px;
+    }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    p  { font-size: 15px; }
+
+    .add-tasks textarea { height: 28px; }
+    .add-tasks button { font-size: 11px; padding: 8px; }
+}
+
+
+
